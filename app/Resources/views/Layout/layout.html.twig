@@ -1,2 +1,16 @@
 {% extends ':Layout:base.html.twig' %}
 
+{% block body %}
+    <div class="wrapper">
+        {% include ':Layout:header.html.twig' %}
+        {% include ':Layout:sidebar.html.twig' %}
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>{% block content_title %}{% endblock %}</h1>
+            </section>
+            <section class="content">
+                {% block content_body %}{% endblock %}
+            </section>
+        </div>
+    </div>
+{% endblock %}

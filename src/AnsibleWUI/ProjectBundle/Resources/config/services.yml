@@ -1,0 +1,4 @@
+services:
+#    ansible_wui_project.example:
+#        class: AnsibleWUI\ProjectBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

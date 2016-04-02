@@ -1,0 +1,13 @@
+<div class="main-sidebar">
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview {% if module is defined and module == 'project' %}active{% endif %}">
+                <a href="{{ path('ansible_wui_project_homepage') }}">
+                    <i class="fa fa-archive"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
