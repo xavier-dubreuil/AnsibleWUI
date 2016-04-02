@@ -1,0 +1,16 @@
+{
+  "name": "answui",
+  "homepage": "https://github.com/xavier-dubreuil/answui",
+  "authors": [
+    "Xavier DUBREUIL <xav.dubreuil@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery-ui": "jqueryui#^1.11.4",
+    "jquery": "^2.2.2",
+    "bootstrap": "^3.3.6",
+    "AdminLTE": "adminlte#^2.3.3",
+    "font-awesome": "^4.5.0",
+    "select2": "^4.0.2",
+    "moment": "^2.12.0"
+  }
+}

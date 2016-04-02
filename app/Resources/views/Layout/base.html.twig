@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Ansible WUI{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets
+        '@fontawesome'
+        '@bootstrap_css'
+        '@adminlte_css'
+        '@icheck_css'
+        '@datatables_css'
+        '@select2_css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="{% block bodyclass %}skin-red sidebar-mini sidebar-collapse{% endblock %}">
+{% block body %}{% endblock %}
+{% block javascripts %}
+    {% javascripts
+    '@jquery'
+    '@jqueryui'
+    '@bootstrap_js'
+    '@datatables_js'
+    '@moment_js'
+    '@adminlte_js'
+    '@icheck_js'
+    '@select2_js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+</body>
+</html>
