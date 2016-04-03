@@ -28,35 +28,40 @@ class UserType extends AbstractType
 
         $builder->add(
             'firstname',
-            TextType::class, [
+            TextType::class,
+            [
                 'label' => 'First name',
             ]
         );
 
         $builder->add(
             'lastname',
-            TextType::class, [
+            TextType::class,
+            [
                 'label' => 'Last name',
             ]
         );
 
         $builder->add(
             'username',
-            TextType::class, [
+            TextType::class,
+            [
                 'label'    => 'Username',
             ]
         );
 
         $builder->add(
             'email',
-            EmailType::class, [
+            EmailType::class,
+            [
                 'label'    => 'Email',
             ]
         );
 
         $builder->add(
             'roles',
-            ChoiceType::class, [
+            ChoiceType::class,
+            [
                 'label'   => 'Roles',
                 'choices' => [
                     'Administrator' => 'ROLE_ADMIN',
@@ -71,7 +76,8 @@ class UserType extends AbstractType
 
         $builder->add(
             'plainPassword',
-            RepeatedType::class, [
+            RepeatedType::class,
+            [
                 'first_options'  => [
                     'label' => 'Password',
                 ],
@@ -85,7 +91,8 @@ class UserType extends AbstractType
 
         $builder->add(
             'enabled',
-            ChoiceType::class, [
+            ChoiceType::class,
+            [
                 'label'   => 'Status',
                 'choices' => [
                     'Enabled'  => 1,
@@ -99,7 +106,8 @@ class UserType extends AbstractType
 
         $builder->add(
             'submit',
-            SubmitType::class, [
+            SubmitType::class,
+            [
                 'attr' => [
                     'class' => 'btn-sm btn-success',
                 ],

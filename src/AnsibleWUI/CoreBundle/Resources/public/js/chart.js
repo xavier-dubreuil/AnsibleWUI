@@ -33,11 +33,8 @@ jQuery.extend(jQuery.expr[':'], {
             });
         },
         'drawIfVisible': function (graph) {
-            //if ($(graph).is(":visible")) {
-                Chart.draw(graph);
-                return true;
-            //}
-            //return false;
+            Chart.draw(graph);
+            return true;
         },
         'draw': function (element) {
             if ($(element).attr('data-loaded') == 'true') {
@@ -48,10 +45,10 @@ jQuery.extend(jQuery.expr[':'], {
                 {
                     url : $(element).attr('data-graph'),
                     type : "GET",
-                    success : function (data) {
+                    'success' : function (data) {
                         $(element).highcharts(data);
                     },
-                    error: function () {
+                    'error': function () {
                         console.log('error loading chart');
                     }
                 }

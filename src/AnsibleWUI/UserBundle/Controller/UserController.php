@@ -8,8 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\SubmitButton;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class UserController
+ *
+ * @package AnsibleWUI\UserBundle\Controller
+ */
 class UserController extends Controller
 {
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
         /**
@@ -25,6 +33,11 @@ class UserController extends Controller
         );
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewAction($id)
     {
         /**
@@ -40,6 +53,11 @@ class UserController extends Controller
         );
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addAction(Request $request)
     {
         $user = new User();
@@ -47,6 +65,12 @@ class UserController extends Controller
         return $this->showForm($request, $user);
     }
 
+    /**
+     * @param Request $request
+     * @param         $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function editAction(Request $request, $id)
     {
         /**
@@ -57,6 +81,12 @@ class UserController extends Controller
         return $this->showForm($request, $user);
     }
 
+    /**
+     * @param Request $request
+     * @param User    $user
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     private function showForm(Request $request, User $user)
     {
         $form = $this->createForm(UserType::class, $user);
@@ -84,6 +114,11 @@ class UserController extends Controller
         );
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteAction($id)
     {
         /**

@@ -3,7 +3,6 @@
 namespace AnsibleWUI\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -28,35 +27,40 @@ class ProfileType extends AbstractType
 
         $builder->add(
             'firstname',
-            TextType::class, [
+            TextType::class,
+            [
                 'label' => 'First name',
             ]
         );
 
         $builder->add(
             'lastname',
-            TextType::class, [
+            TextType::class,
+            [
                 'label' => 'Last name',
             ]
         );
 
         $builder->add(
             'username',
-            TextType::class, [
+            TextType::class,
+            [
                 'label'    => 'Username',
             ]
         );
 
         $builder->add(
             'email',
-            EmailType::class, [
+            EmailType::class,
+            [
                 'label'    => 'Email',
             ]
         );
 
         $builder->add(
             'plainPassword',
-            RepeatedType::class, [
+            RepeatedType::class,
+            [
                 'first_options'  => [
                     'label' => 'Password',
                 ],
@@ -70,7 +74,8 @@ class ProfileType extends AbstractType
 
         $builder->add(
             'submit',
-            SubmitType::class, [
+            SubmitType::class,
+            [
                 'attr' => [
                     'class' => 'btn-sm btn-success',
                 ],

@@ -17,6 +17,9 @@ class Project
      */
     protected $id;
 
+    /**
+     * @var
+     */
     protected $client;
 
     /**
@@ -29,10 +32,19 @@ class Project
      */
     protected $slug;
 
+    /**
+     * @var
+     */
     protected $hosts;
 
+    /**
+     * @var
+     */
     protected $playbooks;
 
+    /**
+     * Project constructor.
+     */
     public function __construct()
     {
     }

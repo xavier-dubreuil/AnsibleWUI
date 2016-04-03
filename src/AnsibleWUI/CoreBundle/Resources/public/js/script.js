@@ -41,7 +41,7 @@
                 $(elem).siblings('.overlay').remove();
                 $('.overlay', elem).remove();
             });
-        },
+        }
     };
 })(window);
 

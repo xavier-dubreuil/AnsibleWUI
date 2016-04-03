@@ -26,6 +26,9 @@ class User extends BaseUser
      */
     protected $firstname;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         parent::__construct();
