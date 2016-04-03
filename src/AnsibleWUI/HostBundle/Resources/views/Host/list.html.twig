@@ -1,0 +1,53 @@
+{% extends ':Layout:layout.html.twig' %}
+
+{% block content_title %}
+    Hosts
+{% endblock %}
+
+{% block content_body %}
+    <div class="box box-primary">
+        <div class="box-header">
+            List
+            <div class="box-tools pull-right">
+                <a href="{{ path('ansible_wui_host_add') }}" class="btn btn-flat btn-success">Create</a>
+            </div>
+        </div>
+        <div class="box-body">
+            <table id="users" class="table table-bordered table-hover dataTable" role="grid" data-table="">
+                <thead>
+                <tr>
+                    <th data-sort="true" width="50px">ID</th>
+                    <th data-sort="true">Name</th>
+                    <th data-sort="true">IP Address</th>
+                    <th width="100px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.name }}</td>
+                        <td>{{ entity.ipAddress }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ path('ansible_wui_host_view', {'id': entity.id}) }}"
+                                   class="btn btn-sm btn-flat btn-info">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ path('ansible_wui_host_edit', {'id': entity.id}) }}"
+                                   class="btn btn-sm btn-flat btn-warning">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="{{ path('ansible_wui_host_delete', {'id': entity.id}) }}"
+                                   class="btn btn-sm btn-flat btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+# Host
+
+ansible_wui_host_list:
+    path:     /host/list
+    defaults: { _controller: AnsibleWUIHostBundle:Host:index }
+
+ansible_wui_host_view:
+    path:     /host/view/{id}
+    defaults: { _controller: AnsibleWUIHostBundle:Host:view }
+
+ansible_wui_host_add:
+    path:     /host/add
+    defaults: { _controller: AnsibleWUIHostBundle:Host:add }
+
+ansible_wui_host_edit:
+    path:     /host/edit/{id}
+    defaults: { _controller: AnsibleWUIHostBundle:Host:edit }
+
+ansible_wui_host_delete:
+    path:     /host/delete/{id}
+    defaults: { _controller: AnsibleWUIHostBundle:Host:delete }

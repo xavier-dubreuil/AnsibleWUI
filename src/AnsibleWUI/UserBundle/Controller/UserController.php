@@ -2,135 +2,65 @@
 
 namespace AnsibleWUI\UserBundle\Controller;
 
+use AnsibleWUI\CoreBundle\Controller\EntityController;
 use AnsibleWUI\UserBundle\Entity\User;
 use AnsibleWUI\UserBundle\Form\Type\UserType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\SubmitButton;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class UserController
  *
  * @package AnsibleWUI\UserBundle\Controller
  */
-class UserController extends Controller
+class UserController extends EntityController
 {
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function indexAction()
-    {
-        /**
-         * @var User[] $users
-         */
-        $users = $this->getDoctrine()->getRepository('AnsibleWUIUserBundle:User')->findAll();
 
-        return $this->render(
-            'AnsibleWUIUserBundle:User:list.html.twig',
-            [
-                'users' => $users
-            ]
-        );
+    /**
+     * @return User
+     */
+    protected function newEntity()
+    {
+        return new User();
     }
 
     /**
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Doctrine\Common\Persistence\ObjectRepository
      */
-    public function viewAction($id)
+    protected function getRepository()
     {
-        /**
-         * @var User $user
-         */
-        $user = $this->getDoctrine()->getRepository('AnsibleWUIUserBundle:User')->find($id);
-
-        return $this->render(
-            'AnsibleWUIUserBundle:User:view.html.twig',
-            [
-                'user' => $user,
-            ]
-        );
+        return $this->getDoctrine()->getRepository('AnsibleWUIUserBundle:User');
     }
 
     /**
-     * @param Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return mixed
      */
-    public function addAction(Request $request)
+    protected function formType()
     {
-        $user = new User();
-
-        return $this->showForm($request, $user);
+        return UserType::class;
     }
 
     /**
-     * @param Request $request
-     * @param         $id
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return array
      */
-    public function editAction(Request $request, $id)
+    protected function getRoutes()
     {
-        /**
-         * @var User $user
-         */
-        $user = $this->getDoctrine()->getRepository('AnsibleWUIUserBundle:User')->find($id);
-
-        return $this->showForm($request, $user);
+        return [
+            'list'   => 'ansible_wui_useruser_list',
+            'view'   => 'ansible_wui_user_view',
+            'add'    => 'ansible_wui_user_add',
+            'edit'   => 'ansible_wui_user_edit',
+            'delete' => 'ansible_wui_user_delete',
+        ];
     }
 
     /**
-     * @param Request $request
-     * @param User    $user
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return array
      */
-    private function showForm(Request $request, User $user)
+    protected function getTemplates()
     {
-        $form = $this->createForm(UserType::class, $user);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            /**
-             * @var SubmitButton $submit
-             */
-            $submit = $form->get('submit');
-            if ($submit->isClicked()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
-                return $this->redirectToRoute('ansible_wui_user_list');
-            }
-        }
-        return $this->render(
-            'AnsibleWUIUserBundle:User:form.html.twig',
-            [
-                'user' => $user,
-                'form' => $form->createView(),
-            ]
-        );
-    }
-
-    /**
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function deleteAction($id)
-    {
-        /**
-         * @var User $user
-         */
-        $user = $this->getDoctrine()->getRepository('AnsibleWUIUserBundle:User')->find($id);
-
-        $em = $this->getDoctrine()->getManager();
-
-        $em->remove($user);
-        $em->flush();
-
-        return $this->redirectToRoute('ansible_wui_user_list');
+        return [
+            'list' => 'AnsibleWUIUserBundle:User:list.html.twig',
+            'form' => 'AnsibleWUIUserBundle:User:form.html.twig',
+            'view' => 'AnsibleWUIUserBundle:User:view.html.twig',
+        ];
     }
 }

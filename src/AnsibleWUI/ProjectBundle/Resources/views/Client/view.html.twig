@@ -1,0 +1,38 @@
+{% extends ':Layout:layout.html.twig' %}
+
+{% block content_title %}
+    Clients
+{% endblock %}
+
+{% block content_body %}
+    <div class="box box-primary">
+        <div class="box-header">
+            <h4>{{ entity.name }}</h4>
+            <div class="box-tools pull-right btn-group">
+                <a href="{{ path('ansible_wui_client_list') }}" class="btn btn-flat btn-default">
+                    <i class="fa fa-list"></i>
+                </a>
+                <a href="{{ path('ansible_wui_client_edit', { 'id': entity.id }) }}" class="btn btn-flat btn-warning">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="{{ path('ansible_wui_client_delete', { 'id': entity.id }) }}" class="btn btn-flat btn-danger">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-sm-2">Identifier</div>
+                <div class="col-sm-10">{{ entity.id }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">Name</div>
+                <div class="col-sm-10">{{ entity.name }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">Slug</div>
+                <div class="col-sm-10">{{ entity.slug }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

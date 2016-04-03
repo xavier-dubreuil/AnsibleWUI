@@ -3,12 +3,24 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview {% if module is defined and module == 'project' %}active{% endif %}">
-                <a href="{{ path('ansible_wui_project_homepage') }}">
+                <a href="{{ path('ansible_wui_project_list') }}">
                     <i class="fa fa-archive"></i>
                     <span>Projects</span>
                 </a>
             </li>
             {% if is_granted('ROLE_ADMIN') %}
+                <li class="treeview {% if module is defined and module == 'host' %}active{% endif %}">
+                    <a href="{{ path('ansible_wui_host_list') }}">
+                        <i class="fa fa-server"></i>
+                        <span>Hosts</span>
+                    </a>
+                </li>
+                <li class="treeview {% if module is defined and module == 'client' %}active{% endif %}">
+                    <a href="{{ path('ansible_wui_client_list') }}">
+                        <i class="fa fa-building"></i>
+                        <span>Clients</span>
+                    </a>
+                </li>
                 <li class="treeview {% if module is defined and module == 'user' %}active{% endif %}">
                     <a href="{{ path('ansible_wui_user_list') }}">
                         <i class="fa fa-user"></i>

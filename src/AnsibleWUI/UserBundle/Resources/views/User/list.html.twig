@@ -28,28 +28,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for user in users %}
+                {% for entity in entities %}
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.lastname }}</td>
-                        <td>{{ user.firstname }}</td>
-                        <td>{{ user.roles|join(', ') }}</td>
-                        <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
-                        <td>{{ user.lastLogin|date('d/m/Y') }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.username }}</td>
+                        <td>{{ entity.email }}</td>
+                        <td>{{ entity.lastname }}</td>
+                        <td>{{ entity.firstname }}</td>
+                        <td>{{ entity.roles|join(', ') }}</td>
+                        <td>{{ entity.enabled ? 'Yes' : 'No' }}</td>
+                        <td>{{ entity.lastLogin|date('d/m/Y') }}</td>
                         <td>
                             <div class="btn-group">
-                                <a href="{{ path('ansible_wui_user_view', {'id': user.id}) }}"
+                                <a href="{{ path('ansible_wui_user_view', {'id': entity.id}) }}"
                                    class="btn btn-sm btn-flat btn-info">
                                     <i class="fa fa-eye"></i>
                                 </a>
-                                <a href="{{ path('ansible_wui_user_edit', {'id': user.id}) }}"
+                                <a href="{{ path('ansible_wui_user_edit', {'id': entity.id}) }}"
                                    class="btn btn-sm btn-flat btn-warning">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                {% if user != app.user %}
-                                    <a href="{{ path('ansible_wui_user_delete', {'id': user.id}) }}"
+                                {% if entity != app.user %}
+                                    <a href="{{ path('ansible_wui_user_delete', {'id': entity.id}) }}"
                                        class="btn btn-sm btn-flat btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>

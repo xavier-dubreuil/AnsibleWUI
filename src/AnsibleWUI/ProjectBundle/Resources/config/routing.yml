@@ -1,3 +1,49 @@
-ansible_wui_project_homepage:
+#Homepage
+
+ansible_wui_homepage:
     path:     /
     defaults: { _controller: AnsibleWUIProjectBundle:Project:index }
+
+# Project
+
+ansible_wui_project_list:
+    path:     /project/list
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:index }
+
+ansible_wui_project_view:
+    path:     /project/view/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:view }
+
+ansible_wui_project_add:
+    path:     /project/add
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:add }
+
+ansible_wui_project_edit:
+    path:     /project/edit/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:edit }
+
+ansible_wui_project_delete:
+    path:     /project/delete/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:delete }
+
+# Client
+
+ansible_wui_client_list:
+    path:     /client/list
+    defaults: { _controller: AnsibleWUIProjectBundle:Client:index }
+
+ansible_wui_client_view:
+    path:     /client/view/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Client:view }
+
+ansible_wui_client_add:
+    path:     /client/add
+    defaults: { _controller: AnsibleWUIProjectBundle:Client:add }
+
+ansible_wui_client_edit:
+    path:     /client/edit/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Client:edit }
+
+ansible_wui_client_delete:
+    path:     /client/delete/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Client:delete }
