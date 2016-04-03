@@ -1,0 +1,4 @@
+services:
+#    ansible_wui_host.example:
+#        class: AnsibleWUI\HostBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new AnsibleWUI\UserBundle\AnsibleWUIUserBundle(),
             new AnsibleWUI\ProjectBundle\AnsibleWUIProjectBundle(),
             new AnsibleWUI\CoreBundle\AnsibleWUICoreBundle(),
+            new AnsibleWUI\AnsibleBundle\AnsibleWUIAnsibleBundle(),
+            new AnsibleWUI\HostBundle\AnsibleWUIHostBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
