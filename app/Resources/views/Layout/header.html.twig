@@ -22,7 +22,7 @@
                         {% if app.user %}{{ app.user.email }}{% endif %} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ path('fos_user_profile_edit') }}">Profile</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ path('fos_user_security_logout') }}">Signout</a></li>
                     </ul>
                 </li>

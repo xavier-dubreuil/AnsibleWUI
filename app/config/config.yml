@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@AnsibleWUIUserBundle/Resources/config/services.yml" }
     - { resource: "@AnsibleWUIProjectBundle/Resources/config/services.yml" }
+    - { resource: "@AnsibleWUICoreBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -38,6 +39,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'bootstrap_3_horizontal_layout.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -173,7 +176,20 @@ assetic:
             inputs:
                 - '%kernel.root_dir%/../vendor/components/select2/dist/css/select2.min.css'
 
+        answui_js:
+            inputs:
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/bind.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/chart.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/datatable.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/filter.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/sortable.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/tags.js'
+                - '%kernel.root_dir%/../src/AnsibleWUI/CoreBundle/Resources/public/js/script.js'
+
 fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AnsibleWUI\UserBundle\Entity\User
+    profile:
+        form:
+            type: AnsibleWUI\UserBundle\Form\Type\ProfileType

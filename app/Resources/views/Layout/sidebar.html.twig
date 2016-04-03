@@ -8,6 +8,14 @@
                     <span>Projects</span>
                 </a>
             </li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="treeview {% if module is defined and module == 'user' %}active{% endif %}">
+                    <a href="{{ path('ansible_wui_user_list') }}">
+                        <i class="fa fa-user"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </div>

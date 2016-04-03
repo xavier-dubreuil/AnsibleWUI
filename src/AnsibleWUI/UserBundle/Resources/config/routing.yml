@@ -1,0 +1,19 @@
+ansible_wui_user_list:
+    path:     /user/list
+    defaults: { _controller: AnsibleWUIUserBundle:User:index }
+
+ansible_wui_user_view:
+    path:     /user/view/{id}
+    defaults: { _controller: AnsibleWUIUserBundle:User:view }
+
+ansible_wui_user_add:
+    path:     /user/add
+    defaults: { _controller: AnsibleWUIUserBundle:User:add }
+
+ansible_wui_user_edit:
+    path:     /users/edit/{id}
+    defaults: { _controller: AnsibleWUIUserBundle:User:edit }
+
+ansible_wui_user_delete:
+    path:     /users/delete/{id}
+    defaults: { _controller: AnsibleWUIUserBundle:User:delete }

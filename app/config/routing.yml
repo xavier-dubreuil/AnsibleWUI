@@ -1,3 +1,7 @@
+ansible_wui_core:
+    resource: "@AnsibleWUICoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ansible_wui_project:
     resource: "@AnsibleWUIProjectBundle/Resources/config/routing.yml"
     prefix:   /

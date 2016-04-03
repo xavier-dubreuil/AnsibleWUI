@@ -1,0 +1,66 @@
+{% extends ':Layout:layout.html.twig' %}
+
+{% block content_title %}
+    Users
+{% endblock %}
+
+{% block content_body %}
+    <div class="box box-primary">
+        <div class="box-header">
+            List
+            <div class="box-tools pull-right">
+                <a href="{{ path('ansible_wui_user_add') }}" class="btn btn-flat btn-success">Add User</a>
+            </div>
+        </div>
+        <div class="box-body">
+            <table id="users" class="table table-bordered table-hover dataTable" role="grid" data-table="">
+                <thead>
+                <tr>
+                    <th data-sort="true">ID</th>
+                    <th data-sort="true">Username</th>
+                    <th data-sort="true">Email</th>
+                    <th data-sort="true" data-order="asc">Last name</th>
+                    <th data-sort="true" data-order="asc">First name</th>
+                    <th data-sort="true">Roles</th>
+                    <th data-sort="true">Enable</th>
+                    <th data-sort="true">Last login</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.roles|join(', ') }}</td>
+                        <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
+                        <td>{{ user.lastLogin|date('d/m/Y') }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ path('ansible_wui_user_view', {'id': user.id}) }}"
+                                   class="btn btn-sm btn-flat btn-info">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ path('ansible_wui_user_edit', {'id': user.id}) }}"
+                                   class="btn btn-sm btn-flat btn-warning">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                {% if user != app.user %}
+                                    <a href="{{ path('ansible_wui_user_delete', {'id': user.id}) }}"
+                                       class="btn btn-sm btn-flat btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

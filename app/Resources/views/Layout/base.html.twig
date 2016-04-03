@@ -5,12 +5,12 @@
     <title>{% block title %}Ansible WUI{% endblock %}</title>
     {% block stylesheets %}
         {% stylesheets
-        '@fontawesome'
-        '@bootstrap_css'
-        '@adminlte_css'
-        '@icheck_css'
-        '@datatables_css'
-        '@select2_css'
+            '@fontawesome'
+            '@bootstrap_css'
+            '@adminlte_css'
+            '@icheck_css'
+            '@datatables_css'
+            '@select2_css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -21,14 +21,15 @@
 {% block body %}{% endblock %}
 {% block javascripts %}
     {% javascripts
-    '@jquery'
-    '@jqueryui'
-    '@bootstrap_js'
-    '@datatables_js'
-    '@moment_js'
-    '@adminlte_js'
-    '@icheck_js'
-    '@select2_js'
+        '@jquery'
+        '@jqueryui'
+        '@bootstrap_js'
+        '@datatables_js'
+        '@moment_js'
+        '@adminlte_js'
+        '@icheck_js'
+        '@select2_js'
+        '@answui_js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

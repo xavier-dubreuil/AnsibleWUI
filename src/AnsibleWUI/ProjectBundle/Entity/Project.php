@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="answui_projects")
  */
-class User
+class Project
 {
     /**
      * @ORM\Id
@@ -20,12 +20,12 @@ class User
     protected $client;
 
     /**
-     * @ORM\Column(type="string" length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="string" length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $slug;
 
