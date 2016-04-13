@@ -27,6 +27,11 @@ class Task
      * @ORM\Column(type="string", length=50)
      */
     protected $type;
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    protected $snippets;
+
 
     /**
      * Project constructor.
@@ -91,5 +96,29 @@ class Task
     public function getPlaybookHostUser()
     {
         return $this->playbook_host_user;
+    }
+
+    /**
+     * Set snippets
+     *
+     * @param array $snippets
+     *
+     * @return Module
+     */
+    public function setSnippets($snippets)
+    {
+        $this->snippets = $snippets;
+
+        return $this;
+    }
+
+    /**
+     * Get snippets
+     *
+     * @return array
+     */
+    public function getSnippets()
+    {
+        return $this->snippets;
     }
 }

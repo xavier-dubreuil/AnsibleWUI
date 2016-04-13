@@ -24,6 +24,8 @@ framework:
     csrf_protection: ~
     validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
+#    serializer:
+#        enabled: true
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
@@ -195,3 +197,19 @@ fos_user:
     profile:
         form:
             type: AnsibleWUI\UserBundle\Form\Type\ProfileType
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        formats:
+            rss: false
+            xml: true
+            json: true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+    disable_csrf_role: ROLE_API

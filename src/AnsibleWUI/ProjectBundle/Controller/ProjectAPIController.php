@@ -4,7 +4,7 @@ namespace AnsibleWUI\ProjectBundle\Controller;
 
 use AnsibleWUI\ProjectBundle\Entity\Project;
 use AnsibleWUI\ProjectBundle\Form\Type\ProjectType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -12,36 +12,39 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package AnsibleWUI\ProjectBundle\Controller
  */
-class ProjectController extends Controller
+class ProjectAPIController extends FOSRestController
 {
     private function getManager()
     {
         return $this->get('project.manager');
     }
 
+
     public function getProjectAction($slug)
     {
+
         $project = $this->getManager()->getRepository()->find($slug);
 
-        return $this->render(
-            'AnsibleWUIProjectBundle:Project:view.html.twig',
-            [
-                'entity' => $project
-            ]
-        );
+        $view = $this->view($project, 200)
+                     ->setTemplate('AnsibleWUIProjectBundle:Project:view.html.twig')
+                     ->setTemplateVar('entity')
+        ;
+
+        return $this->handleView($view);
     }
 
     public function getProjectsAction(Request $request)
     {
+        var_dump($request->attributes);die;
 
         $projects = $this->getManager()->getRepository()->findAll();
 
-        return $this->render(
-            'AnsibleWUIProjectBundle:Project:list.html.twig',
-            [
-                'entities' => $projects
-            ]
-        );
+        $view = $this->view($projects, 200)
+                     ->setTemplate('AnsibleWUIProjectBundle:Project:list.html.twig')
+                     ->setTemplateVar('entities')
+        ;
+
+        return $this->handleView($view);
     }
 
     /**

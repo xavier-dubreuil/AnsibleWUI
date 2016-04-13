@@ -2,16 +2,17 @@
 
 namespace AnsibleWUI\CoreBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\SubmitButton;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Controller\FOSRestController;
 
 /**
  * Class EntityController
  *
  * @package AnsibleWUI\CoreBundle\Controller
  */
-abstract class EntityController extends Controller
+
+abstract class EntityController extends FOSRestController
 {
     /**
      * @return mixed

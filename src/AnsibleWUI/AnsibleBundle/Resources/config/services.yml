@@ -1,4 +1,7 @@
 services:
-#    ansible_wui_ansible.example:
-#        class: AnsibleWUI\AnsibleBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    ansible_wui_ansible.form_type.task:
+        class: AnsibleWUI\AnsibleBundle\Form\Type\TaskType
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: form.type }

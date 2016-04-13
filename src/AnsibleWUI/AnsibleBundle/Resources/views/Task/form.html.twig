@@ -1,0 +1,20 @@
+{% extends ':Layout:layout.html.twig' %}
+
+{% set module = 'task' %}
+
+{% block content_title %}
+    Tasks
+{% endblock %}
+
+{% block content_body %}
+    <div class="box box-primary">
+        <div class="box-header">
+            {% if entity is null %}New Task{% else %}{{ entity.type }}{% endif %}
+        </div>
+        <div class="box-body">
+            {{ form_start(form) }}
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

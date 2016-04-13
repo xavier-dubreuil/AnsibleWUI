@@ -31,7 +31,7 @@ class Module
     /**
      * @ORM\Column(type="json_array")
      */
-    protected $snippet;
+    protected $snippets;
 
     /**
      * Get id
@@ -116,26 +116,26 @@ class Module
     }
 
     /**
-     * Set snippet
+     * Set snippets
      *
-     * @param array $snippet
+     * @param array $snippets
      *
      * @return Module
      */
-    public function setSnippet($snippet)
+    public function setSnippets($snippets)
     {
-        $this->snippet = $snippet;
+        $this->snippets = $snippets;
 
         return $this;
     }
 
     /**
-     * Get snippet
+     * Get snippets
      *
      * @return array
      */
-    public function getSnippet()
+    public function getSnippets()
     {
-        return $this->snippet;
+        return $this->snippets;
     }
 }

@@ -93,12 +93,12 @@ class ImportModulesCommand extends ContainerAwareCommand
                 if (preg_match('/^      ([^ =]*)(=?)\s*# (.*)$/', $line, $matches)) {
                     $snippet[] = [
                         'name' => $matches[1],
-                        'requires' => $matches[2] == '=' ? true : false,
+                        'required' => $matches[2] == '=' ? true : false,
                         'description' => $matches[3],
                     ];
                 }
             }
-            $module->setSnippet($snippet);
+            $module->setSnippets($snippet);
             $this->entityManager->persist($module);
         } catch (\Exception $e) {
             return false;

@@ -2,17 +2,22 @@
 
 ansible_wui_homepage:
     path:     /
-    defaults: { _controller: AnsibleWUIProjectBundle:Project:index }
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:getProjects }
 
 # Project
 
+projects:
+    type:     rest
+    resource: AnsibleWUI\ProjectBundle\Controller\ProjectAPIController
+    prefix:   /api
+
 ansible_wui_project_list:
-    path:     /project/list
-    defaults: { _controller: AnsibleWUIProjectBundle:Project:index }
+    path:     /projects
+    defaults: { _controller: AnsibleWUIProjectBundle:ProjectAPI:getProjects }
 
 ansible_wui_project_view:
-    path:     /project/view/{id}
-    defaults: { _controller: AnsibleWUIProjectBundle:Project:view }
+    path:     /projects/{id}
+    defaults: { _controller: AnsibleWUIProjectBundle:Project:getProject }
 
 ansible_wui_project_add:
     path:     /project/add

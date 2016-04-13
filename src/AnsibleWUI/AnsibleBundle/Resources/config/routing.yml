@@ -1,0 +1,17 @@
+# Playbook
+
+ansible_wui_playbook_list:
+    path:     /playbook/list
+    defaults: { _controller: AnsibleWUIAnsibleBundle:Playbook:index }
+
+ansible_wui_playbook_add:
+    path:     /playbook/add
+    defaults: { _controller: AnsibleWUIAnsibleBundle:Playbook:add }
+
+ansible_wui_task_list:
+    path:     /task/list
+    defaults: { _controller: AnsibleWUIAnsibleBundle:Task:index }
+
+ansible_wui_task_add:
+    path:     /task/add/{module}
+    defaults: { _controller: AnsibleWUIAnsibleBundle:Task:add }

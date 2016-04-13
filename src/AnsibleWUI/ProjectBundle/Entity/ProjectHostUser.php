@@ -23,14 +23,14 @@ class ProjectHostUser
      *     inversedBy="hosts_users"
      * )
      **/
-    protected $project;
+    protected $user;
     /**
      * @ORM\ManyToOne(
      *     targetEntity="\AnsibleWUI\HostBundle\Entity\HostUser",
      *     inversedBy="projects"
      * )
      **/
-    protected $user;
+    protected $project;
     /**
      * @ORM\Column(type="string", length=50)
      */
